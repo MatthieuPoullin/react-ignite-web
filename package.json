@@ -1,0 +1,81 @@
+{
+  "name": "ReactIgniteWeb",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "npm-run-all --parallel watch-css react-start",
+    "build": "build-css && yarn run react-build",
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test --env=jsdom",
+    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css": "yarn run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "test": "yarn run react-test",
+    "eject": "react-scripts eject",
+    "precommit": "yarn run lint -s && yarn test -s",
+    "lint": "standard --verbose | snazzy",
+    "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
+    "fixcode": "standard --fix",
+    "git-hook": "yarn run lint -s && yarn test -s"
+  },
+  "dependencies": {
+    "apisauce": "^0.14.0",
+    "classnames": "^2.2.5",
+    "format-json": "^1.0.3",
+    "history": "^4.7.2",
+    "immutable": "^3.8.1",
+    "localforage": "^1.5.0",
+    "lodash": "^4.17.2",
+    "material-ui": "^0.18.1",
+    "moment": "^2.18.1",
+    "prop-types": "^15.5.10",
+    "ramda": "^0.23.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.4.0",
+    "react-intl": "^2.3.0",
+    "react-redux": "^5.0.2",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "next",
+    "react-scroll": "^1.5.2",
+    "react-swipeable-views": "^0.12.3",
+    "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.6.0",
+    "redux-persist": "^4.1.0",
+    "redux-saga": "0.15.3",
+    "reduxsauce": "0.4.1",
+    "seamless-immutable": "^7.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "enzyme": "^2.6.0",
+    "mockery": "^2.0.0",
+    "node-sass-chokidar": "^0.0.3",
+    "npm-run-all": "^4.1.1",
+    "nyc": "^10.1.2",
+    "react-addons-test-utils": "^15.3.1",
+    "react-scripts": "0.9.5",
+    "reactotron-apisauce": "^1.7.0",
+    "reactotron-react-js": "^1.12.2",
+    "reactotron-redux": "^1.7.0",
+    "reactotron-redux-saga": "^1.7.0",
+    "snazzy": "^6.0.0",
+    "standard": "8.6.0"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "describe",
+      "it",
+      "fetch",
+      "navigator",
+      "__DEV__",
+      "XMLHttpRequest",
+      "FormData",
+      "React$Element"
+    ]
+  },
+  "config": {
+    "ghooks": {}
+  }
+}
