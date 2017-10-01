@@ -20,7 +20,7 @@ export const INITIAL_STATE = Immutable({
   fetching: true,
   error: null,
   payload: [],
-  userFriends: [{id: 1, 'name': 'Matthieu'}]
+  userFriends: []
 })
 
 /* ------------- Reducers ------------- */
